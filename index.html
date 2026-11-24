@@ -92,13 +92,13 @@
   </section>
   <div class="toolbar">
     <div class="tabs" id="categoryTabs">
-      <button type="button" class="tab active" onclick="selectCategory('all', this)">🔥 All Deals</button>
-      <button type="button" class="tab" onclick="selectCategory('fashion', this)">👗 Women's Fashion</button>
-      <button type="button" class="tab" onclick="selectCategory('women-footwear', this)">👠 Women's Footwear</button>
-      <button type="button" class="tab" onclick="selectCategory('beauty', this)">💄 Beauty & Cosmetics</button>
-      <button type="button" class="tab" onclick="selectCategory('men-footwear', this)">👟 Men's Footwear</button>
+      <button type="button" class="tab active" data-cat="all">🔥 All Deals</button>
+      <button type="button" class="tab" data-cat="fashion">👗 Women's Fashion</button>
+      <button type="button" class="tab" data-cat="women-footwear">👠 Women's Footwear</button>
+      <button type="button" class="tab" data-cat="beauty">💄 Beauty & Cosmetics</button>
+      <button type="button" class="tab" data-cat="men-footwear">👟 Men's Footwear</button>
     </div>
-    <input type="text" class="search" id="searchBox" placeholder="Search brands, shoes, kurtas..." oninput="renderFilteredDeals()" />
+    <input type="text" class="search" id="searchBox" placeholder="Search brands, shoes, kurtas..." />
   </div>
   <main class="grid" id="dealsGrid"></main>
   <section class="trust-bar">
@@ -121,13 +121,6 @@
     <p>© 2026 HotDealsAi • Automated Shopping Deal Radar</p>
     <p style="margin-top:6px;">Disclosure: HotDealsAi curates public store discounts and may earn a small partner referral fee at zero extra cost to you.</p>
   </footer>
-  <script>
-    var activeCat = 'all';
-    var dealsData = [];
-    var fallbackDeals = [
-      { category: "Women's Fashion", title: "Festive & Everyday Kurta Sets — Flat 50%–70% Off", price: 699, mrp: 1999, discount: 65, store: "Myntra", image: "", ek_link: "#" },
-      { category: "Women's Footwear", title: "Block Heels, Flats & Winter Boots Clearance Drop", price: 549, mrp: 1499, discount: 63, store: "Myntra", image: "", ek_link: "#" },
-      { category: "Beauty & Cosmetics", title: "Bestselling Lipsticks, Serums & Skincare Combos", price: 349, mrp: 799, discount: 56, store: "Nykaa", image: "", ek_link: "#" },
-      { category: "Men's Footwear", title: "Branded Everyday Sneakers & Running Shoes Drop", price: 999, mrp: 2999, discount: 67, store: "Flipkart", image: "", ek_link: "#" }
-    ];
-
+  <script src="app.js"></script>
+</body>
+</html>
