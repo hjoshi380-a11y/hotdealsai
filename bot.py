@@ -97,7 +97,7 @@ def is_deal_still_active(deal):
     if not url.startswith("http"):
         return False
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=8, allow_redirects=True)
+        resp = requests.get(url, headers=HEADERS, timeout=3, allow_redirects=True)
         if resp.status_code >= 400:
             return False
         if any(sig in resp.text.lower() for sig in EXPIRED_SIGNALS):
@@ -123,7 +123,7 @@ def prune_expired_deals():
 
 async def fetch_hd_via_playwright(context, affiliate_url, fallback_img="", fallback_title=""):
     try:
-        resp = await context.request.get(affiliate_url, timeout=10000)
+        resp = await context.request.get(affiliate_url, timeout=3500)
         if resp.status >= 400:
             return None
         final_url = resp.url
@@ -312,14 +312,13 @@ async def run_bot():
                     msg = build_telegram_message(deal)
                     await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode="HTML")
                     add_deal_to_website(deal)
-                    sync_website_to_github()
                     print(f"  ✅ POSTED & SYNCED: {deal['title']} ({deal['store']})")
 
                     history.add(deal["title"])
                     history.add(deal["ek_link"])
                     save_history(history)
                     posts_this_round += 1
-                    await asyncio.sleep(5)
+                    await asyncio.sleep(1)
 
             print(f"\nCycle complete! Posted {posts_this_round} deals. Next scan in {CHECK_INTERVAL // 60} minutes...")
             await asyncio.sleep(CHECK_INTERVAL)
