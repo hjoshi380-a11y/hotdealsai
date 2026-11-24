@@ -1,91 +1,36 @@
 [
   {
-    "category": "Women's Footwear",
-    "title": "Women's Footwear Exclusive Offer #7",
-    "price": null,
-    "mrp": null,
-    "discount": 0,
-    "store": "Partner Store",
-    "image": "https://asset21.ckassets.com/resources/image/stores/shein-store-1765542042.png",
-    "posted_at": "05:52 PM",
-    "ek_link": "https://bitli.in/FXZpJ8d"
-  },
-  {
-    "category": "Women's Fashion",
-    "title": "Women's Fashion Exclusive Offer #7",
-    "price": null,
-    "mrp": null,
-    "discount": 0,
-    "store": "Partner Store",
-    "image": "https://asset21.ckassets.com/resources/image/stores/shein-store-1765542042.png",
-    "posted_at": "05:52 PM",
-    "ek_link": "https://bitli.in/RTj3i8Q"
-  },
-  {
-    "category": "Today's Exclusive Offers",
-    "title": "Today's Exclusive Offers Exclusive Offer #7",
-    "price": null,
-    "mrp": null,
-    "discount": 0,
-    "store": "Partner Store",
-    "image": "https://asset21.ckassets.com/resources/image/stores/shein-store-1765542042.png",
-    "posted_at": "05:51 PM",
-    "ek_link": "https://bitli.in/X92Q24E"
-  },
-  {
     "category": "Men's Footwear",
-    "title": "STARTING FROM",
-    "price": 179,
-    "mrp": null,
-    "discount": 0,
-    "store": "Partner Store",
-    "image": "https://asset22.ckassets.com/resources/image/staticpage_images/53-1795502229.png",
-    "posted_at": "05:51 PM",
-    "ek_link": "https://bitli.in/NuWmao6"
-  },
-  {
-    "category": "Men's Footwear",
-    "title": "BIG BIRTHDAY SALE",
-    "price": null,
-    "mrp": null,
-    "discount": 0,
-    "store": "Partner Store",
-    "image": "https://asset21.ckassets.com/resources/image/stores/themancompany-direct-newstore-1778239912.png",
-    "posted_at": "05:51 PM",
-    "ek_link": "https://bitli.in/Ve1uvMs"
-  },
-  {
-    "category": "Today's Exclusive Offers",
     "title": "UPTO 90% OFF",
     "price": null,
     "mrp": null,
     "discount": 0,
-    "store": "Partner Store",
+    "store": "Official Store",
     "image": "https://asset21.ckassets.com/resources/image/stores/shopsy-store-1692602320.png",
-    "posted_at": "05:42 PM",
-    "ek_link": "https://bitli.in/KA76Ml1"
+    "posted_at": "06:12 PM",
+    "ek_link": "https://bitli.in/tbwvEpE"
   },
   {
-    "category": "Men's Footwear",
+    "category": "Today's Exclusive Offers",
     "title": "BIG BATH SALE",
     "price": null,
     "mrp": null,
     "discount": 0,
-    "store": "Partner Store",
+    "store": "Official Store",
     "image": "https://asset21.ckassets.com/resources/image/stores/mcaffeine-store-4-1639372559.jpg",
-    "posted_at": "05:41 PM",
-    "ek_link": "https://bitli.in/3RAEvux"
+    "posted_at": "06:12 PM",
+    "ek_link": "https://bitli.in/e2Yc5RC"
   },
   {
-    "category": "Men's Footwear",
+    "category": "Today's Exclusive Offers",
     "title": "UPTO 80% OFF",
     "price": null,
     "mrp": null,
     "discount": 0,
-    "store": "Partner Store",
+    "store": "Official Store",
     "image": "https://asset21.ckassets.com/resources/image/stores/ajio-store-1606812055.png",
-    "posted_at": "05:41 PM",
-    "ek_link": "https://ajiio.in/gI267ah"
+    "posted_at": "06:12 PM",
+    "ek_link": "https://ajiio.in/w0Z7c2V"
   },
   {
     "category": "Women's Footwear",
@@ -93,10 +38,10 @@
     "price": null,
     "mrp": null,
     "discount": 0,
-    "store": "Partner Store",
+    "store": "Official Store",
     "image": "https://asset21.ckassets.com/resources/image/stores/dot-key-new-3-1701263368.jpg",
-    "posted_at": "05:41 PM",
-    "ek_link": "https://bitli.in/4GfwVSp"
+    "posted_at": "06:11 PM",
+    "ek_link": "https://bitli.in/rvshsqQ"
   },
   {
     "category": "Women's Footwear",
@@ -106,7 +51,7 @@
     "discount": 0,
     "store": "Myntra",
     "image": "https://asset21.ckassets.com/resources/image/stores/myntra-new-t-1777980142.png",
-    "posted_at": "05:41 PM",
-    "ek_link": "https://myntr.it/YvgmHJz"
+    "posted_at": "06:11 PM",
+    "ek_link": "https://myntr.it/Zdrb9PE"
   }
 ]
