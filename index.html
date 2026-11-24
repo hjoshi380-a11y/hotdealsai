@@ -3,76 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HotDealsAi — AI-Powered Price Drop Radar</title>
+  <title>HotDealsAi — Real-Time AI Price Drop Radar for India</title>
   <style>
     :root {
-      --bg: #0b0f19;
-      --card: #131a2a;
-      --border: #1f2a44;
+      --bg: #070a12;
+      --surface: #0f1626;
+      --card: #131c31;
+      --border: #1e293b;
       --accent: #ff4d4d;
-      --accent2: #7c3aed;
+      --purple: #8b5cf6;
       --green: #10b981;
       --text: #f8fafc;
       --muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--text); line-height: 1.5; }
+
     header {
-      background: linear-gradient(135deg, #111827 0%, #1e1b4b 100%);
+      background: rgba(11, 16, 29, 0.85);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 20px;
+      padding: 16px 20px;
       position: sticky; top: 0; z-index: 50;
     }
-    .nav { max-width: 1150px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
+    .nav { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
     .logo span { color: var(--accent); }
-    .badge { background: rgba(124, 58, 237, 0.2); border: 1px solid var(--accent2); color: #c4b5fd; padding: 4px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
-
-    .hero { max-width: 900px; margin: 45px auto 30px; padding: 0 20px; text-align: center; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
-    .hero h1 span { background: linear-gradient(90deg, #ff4d4d, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 28px; }
-
-    .cta-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 16px; }
-    .btn {
-      padding: 14px 26px; border-radius: 12px; font-weight: 700; font-size: 1rem;
-      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      transition: transform 0.15s ease, opacity 0.15s ease;
+    .live-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6ee7b7; padding: 6px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
     }
-    .btn:hover { transform: translateY(-2px); opacity: 0.95; }
-    .btn-wa { background: #22c55e; color: #052e16; }
-    .btn-tg { background: #38bdf8; color: #082f49; }
-    .trust-note { font-size: 0.85rem; color: var(--muted); }
+    .dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 1.6s infinite; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-    .filters { max-width: 1150px; margin: 30px auto 20px; padding: 0 20px; display: flex; gap: 10px; overflow-x: auto; }
+    .hero { max-width: 960px; margin: 48px auto 32px; padding: 0 20px; text-align: center; }
+    .eyebrow {
+      display: inline-block; background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c4b5fd; padding: 5px 14px; border-radius: 999px; font-size: 0.82rem; font-weight: 600; margin-bottom: 18px;
+    }
+    .hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.12; margin-bottom: 16px; }
+    .hero h1 span {
+      background: linear-gradient(90deg, #ff4d4d, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 660px; margin: 0 auto 28px; }
+
+    .cta-group { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 24px; }
+    .btn {
+      padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 1rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-wa { background: #22c55e; color: #052e16; box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25); }
+    .btn-tg { background: #38bdf8; color: #082f49; box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25); }
+
+    .trust-strip {
+      max-width: 900px; margin: 0 auto 36px; padding: 14px 20px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; text-align: center;
+    }
+    .trust-item strong { display: block; color: #fff; font-size: 0.95rem; }
+    .trust-item span { color: var(--muted); font-size: 0.8rem; }
+
+    .controls {
+      max-width: 1180px; margin: 0 auto 22px; padding: 0 20px;
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center;
+    }
+    .filters { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
     .filter-btn {
-      background: var(--card); border: 1px solid var(--border); color: var(--muted);
-      padding: 8px 16px; border-radius: 999px; cursor: pointer; font-weight: 600; white-space: nowrap;
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+      padding: 8px 16px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.88rem; white-space: nowrap;
     }
     .filter-btn.active, .filter-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .search-box {
+      background: var(--surface); border: 1px solid var(--border); color: #fff;
+      padding: 9px 16px; border-radius: 999px; font-size: 0.9rem; min-width: 230px; outline: none;
+    }
+    .search-box:focus { border-color: var(--purple); }
 
     .grid {
-      max-width: 1150px; margin: 0 auto 60px; padding: 0 20px;
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px;
+      max-width: 1180px; margin: 0 auto 60px; padding: 0 20px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 22px;
     }
     .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-      padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card:hover { border-color: var(--accent2); transform: translateY(-3px); }
-    .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .cat-tag { font-size: 0.75rem; color: #a5b4fc; background: rgba(99, 102, 241, 0.15); padding: 4px 10px; border-radius: 8px; font-weight: 600; }
-    .disc-tag { font-size: 0.78rem; color: #fecaca; background: rgba(239, 68, 68, 0.25); padding: 4px 10px; border-radius: 8px; font-weight: 700; }
-    .title { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; color: #f1f5f9; }
-    .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; }
+    .card:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+    .img-wrap {
+      position: relative; width: 100%; height: 195px; background: #0b101d;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .img-fallback { font-size: 2.5rem; color: #334155; }
+    .disc-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 8px;
+      font-size: 0.78rem; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .store-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.12); color: #e2e8f0;
+      padding: 4px 10px; border-radius: 8px; font-size: 0.74rem; font-weight: 700;
+    }
+    .card-body { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+    .meta-row { display: flex; justify-content: space-between; font-size: 0.75rem; color: #a5b4fc; margin-bottom: 8px; font-weight: 600; }
+    .title {
+      font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
     .deal-price { font-size: 1.45rem; font-weight: 800; color: var(--green); }
-    .mrp { font-size: 0.95rem; color: var(--muted); text-decoration: line-through; }
+    .mrp { font-size: 0.92rem; color: var(--muted); text-decoration: line-through; }
     .grab-btn {
       display: block; text-align: center; background: linear-gradient(90deg, #ff4d4d, #f97316);
-      color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: 700;
+      color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 0.95rem;
     }
     .grab-btn:hover { opacity: 0.92; }
+
+    .how-section { max-width: 1180px; margin: 0 auto 60px; padding: 0 20px; }
+    .how-box { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
+    .how-box h2 { text-align: center; font-size: 1.6rem; margin-bottom: 24px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .step { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: 14px; }
+    .step-num { color: var(--accent); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px; }
+    .step h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: 0.88rem; }
 
     footer { border-top: 1px solid var(--border); padding: 30px 20px; text-align: center; color: var(--muted); font-size: 0.85rem; }
   </style>
@@ -81,84 +147,45 @@
 
   <header>
     <div class="nav">
-      <div class="logo">HotDeals<span>Ai</span></div>
-      <div class="badge">● AI Radar Live • Scanning 24/7</div>
+      <div class="logo">⚡ HotDeals<span>Ai</span></div>
+      <div class="live-pill"><span class="dot"></span> AI Price Radar Active</div>
     </div>
   </header>
 
   <section class="hero">
-    <h1>Never Overpay Again. Let <span>HotDealsAi</span> Catch Price Drops For You.</h1>
-    <p>Our AI scans top fashion, beauty, and lifestyle stores every 30 minutes to alert you the second massive discounts go live—before sizes sell out.</p>
+    <div class="eyebrow">🤖 Automated Deal Discovery Engine for Smart Shoppers</div>
+    <h1>Stop Paying Full Price. Let <span>HotDealsAi</span> Catch Price Drops For You.</h1>
+    <p>Our AI monitors Myntra, Flipkart, Ajio & Nykaa every 30 minutes to surface verified 40%–80% price drops before popular sizes sell out.</p>
     <div class="cta-group">
-      <a id="waLink" href="https://whatsapp.com/channel/0029VbEkXoy0Qeaocevw6U0c" target="_blank" class="btn btn-wa">💬 Join Free WhatsApp Alerts</a>
-      <a id="tgLink" href="https://t.me" target="_blank" class="btn btn-tg">✈️ Join Telegram VIP Channel</a>
+      <a href="https://whatsapp.com" target="_blank" class="btn btn-wa">💬 Join Free WhatsApp Alerts</a>
+      <a href="https://t.me" target="_blank" class="btn btn-tg">✈️ Join Telegram VIP Channel</a>
     </div>
-    <div class="trust-note">100% Free • Zero Spam • Instant Price-Drop Alerts</div>
   </section>
 
-  <div class="filters" id="filterBar">
-    <button class="filter-btn active" onclick="filterDeals('ALL', this)">🔥 All Live Deals</button>
-    <button class="filter-btn" onclick="filterDeals('Women\'s Fashion', this)">👗 Women's Fashion</button>
-    <button class="filter-btn" onclick="filterDeals('Women\'s Footwear', this)">👠 Women's Footwear</button>
-    <button class="filter-btn" onclick="filterDeals('Beauty & Cosmetics', this)">💄 Beauty & Cosmetics</button>
-    <button class="filter-btn" onclick="filterDeals('Men\'s Footwear', this)">👟 Men's Footwear</button>
+  <div class="trust-strip">
+    <div class="trust-item"><strong>100% Verified Links</strong><span>Redirects straight to official store pages</span></div>
+    <div class="trust-item"><strong>Scanned Every 30 Mins</strong><span>Real-time automated price-drop detection</span></div>
+    <div class="trust-item"><strong>Zero Extra Cost</strong><span>Always free for shoppers, zero spam</span></div>
+  </div>
+
+  <div class="controls">
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterDeals('ALL', this)">🔥 All Live Drops</button>
+      <button class="filter-btn" onclick="filterDeals('Women\'s Fashion', this)">👗 Women's Fashion</button>
+      <button class="filter-btn" onclick="filterDeals('Women\'s Footwear', this)">👠 Women's Footwear</button>
+      <button class="filter-btn" onclick="filterDeals('Beauty & Cosmetics', this)">💄 Beauty</button>
+      <button class="filter-btn" onclick="filterDeals('Men\'s Footwear', this)">👟 Men's Footwear</button>
+    </div>
+    <input type="text" class="search-box" id="searchInput" placeholder="Search brands, shoes, kurtas..." oninput="searchDeals(this.value)" />
   </div>
 
   <main class="grid" id="dealsGrid"></main>
 
-  <footer>
-    <p>© 2026 HotDealsAi • Automated Deal Discovery Engine</p>
-    <p style="margin-top:6px;">Disclosure: HotDealsAi curates public store discounts and may earn a small partner commission at zero extra cost to you.</p>
-  </footer>
-
-  <script>
-    let allDeals = [];
-
-    async function loadDeals() {
-      try {
-        const res = await fetch('live_deals.json?t=' + Date.now());
-        allDeals = await res.json();
-        renderDeals(allDeals);
-      } catch (e) {
-        document.getElementById('dealsGrid').innerHTML = '<p style="color:#94a3b8;grid-column:1/-1;text-align:center;">Scanning live deals right now... Refresh in 1 minute!</p>';
-      }
-    }
-
-    function renderDeals(deals) {
-      const grid = document.getElementById('dealsGrid');
-      if (!deals.length) {
-        grid.innerHTML = '<p style="color:#94a3b8;grid-column:1/-1;text-align:center;">No deals in this category yet—check All Live Deals!</p>';
-        return;
-      }
-      grid.innerHTML = deals.map(d => `
-        <div class="card">
-          <div>
-            <div class="card-top">
-              <span class="cat-tag">${d.category}</span>
-              ${d.discount >= 15 ? `<span class="disc-tag">${d.discount}% OFF</span>` : `<span class="disc-tag">HOT DEAL</span>`}
-            </div>
-            <div class="title">${d.title}</div>
-          </div>
-          <div>
-            ${d.price ? `
-              <div class="price-row">
-                <span class="deal-price">₹${d.price}</span>
-                ${d.mrp && d.mrp > d.price ? `<span class="mrp">₹${d.mrp}</span>` : ''}
-              </div>` : ''}
-            <a href="${d.ek_link}" target="_blank" rel="noopener" class="grab-btn">Grab Deal Now →</a>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function filterDeals(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (cat === 'ALL') renderDeals(allDeals);
-      else renderDeals(allDeals.filter(d => d.category === cat));
-    }
-
-    loadDeals();
-  </script>
-</body>
-</html>
+  <section class="how-section">
+    <div class="how-box">
+      <h2>Why Shoppers Trust HotDealsAi</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">STEP 01 • 24/7 SCANNING</div>
+          <h3>Automated Price Tracking</h3>
+          <p>Our engine continuously tracks sudden markdowns across top fashion, footwear, and beauty brands.</p>
