@@ -157,7 +157,7 @@
     <h1>Stop Paying Full Price. Let <span>HotDealsAi</span> Catch Price Drops For You.</h1>
     <p>Our AI monitors Myntra, Flipkart, Ajio & Nykaa every 30 minutes to surface verified 40%–80% price drops before popular sizes sell out.</p>
     <div class="cta-group">
-      <a href="https://whatsapp.com" target="_blank" class="btn btn-wa">💬 Join Free WhatsApp Alerts</a>
+      <a href="https://whatsapp.com/channel/0029VbEkXoy0Qeaocevw6U0c" target="_blank" class="btn btn-wa">💬 Join Free WhatsApp Alerts</a>
       <a href="https://t.me" target="_blank" class="btn btn-tg">✈️ Join Telegram VIP Channel</a>
     </div>
   </section>
@@ -170,13 +170,13 @@
 
   <div class="controls">
     <div class="filters">
-      <button class="filter-btn active" onclick="filterDeals('ALL', this)">🔥 All Live Drops</button>
-      <button class="filter-btn" onclick="filterDeals('Women\'s Fashion', this)">👗 Women's Fashion</button>
-      <button class="filter-btn" onclick="filterDeals('Women\'s Footwear', this)">👠 Women's Footwear</button>
-      <button class="filter-btn" onclick="filterDeals('Beauty & Cosmetics', this)">💄 Beauty</button>
-      <button class="filter-btn" onclick="filterDeals('Men\'s Footwear', this)">👟 Men's Footwear</button>
+      <button type="button" class="filter-btn active" data-filter="all">🔥 All Live Drops</button>
+      <button type="button" class="filter-btn" data-filter="fashion">👗 Women's Fashion</button>
+      <button type="button" class="filter-btn" data-filter="women-shoes">👠 Women's Footwear</button>
+      <button type="button" class="filter-btn" data-filter="beauty">💄 Beauty</button>
+      <button type="button" class="filter-btn" data-filter="men-shoes">👟 Men's Footwear</button>
     </div>
-    <input type="text" class="search-box" id="searchInput" placeholder="Search brands, shoes, kurtas..." oninput="searchDeals(this.value)" />
+    <input type="text" class="search-box" id="searchInput" placeholder="Search brands, shoes, kurtas..." />
   </div>
 
   <main class="grid" id="dealsGrid"></main>
@@ -189,3 +189,5 @@
           <div class="step-num">STEP 01 • 24/7 SCANNING</div>
           <h3>Automated Price Tracking</h3>
           <p>Our engine continuously tracks sudden markdowns across top fashion, footwear, and beauty brands.</p>
+        </div>
+        <div class="step">
