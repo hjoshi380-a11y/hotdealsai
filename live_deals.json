@@ -1,6 +1,17 @@
 [
   {
     "category": "Beauty & Cosmetics",
+    "title": "Shopsy Store",
+    "price": null,
+    "mrp": null,
+    "discount": 0,
+    "store": "Official Store",
+    "image": "https://asset21.ckassets.com/resources/image/stores/ogimage/shopsy-store-1692602320.png",
+    "posted_at": "06:43 PM",
+    "ek_link": "https://bitli.in/1tJz0ri"
+  },
+  {
+    "category": "Beauty & Cosmetics",
     "title": "mCaffeine Store",
     "price": null,
     "mrp": null,
