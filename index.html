@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HotDealsAi — Verified Fashion, Footwear & Beauty Price Drops</title>
+  <title>HotDealsAi — Verified Fashion, Electronics, Beauty & Home Price Drops</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -34,16 +34,16 @@
     .pill { display: inline-flex; align-items: center; gap: 6px; background: #ffe4e6; color: var(--brand-dark); padding: 5px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 16px; }
     .hero h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 14px; }
     .hero h1 span { color: var(--brand); }
-    .hero p { color: var(--slate); font-size: 1.08rem; max-width: 620px; margin: 0 auto 26px; }
+    .hero p { color: var(--slate); font-size: 1.08rem; max-width: 640px; margin: 0 auto 26px; }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
     .cta-primary { background: #16a34a; color: #fff; padding: 14px 26px; border-radius: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(22, 163, 74, 0.25); }
     .cta-secondary { background: #0284c7; color: #fff; padding: 14px 26px; border-radius: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(2, 132, 199, 0.22); }
     .toolbar { max-width: 1200px; margin: 28px auto 20px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
     .tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
-    .tab { background: var(--white); border: 1px solid var(--border); color: var(--slate); padding: 9px 18px; border-radius: 999px; font-size: 0.88rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.15s ease; }
+    .tab { background: var(--white); border: 1px solid var(--border); color: var(--slate); padding: 9px 16px; border-radius: 999px; font-size: 0.86rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: all 0.15s ease; }
     .tab:hover { border-color: var(--brand); color: var(--brand); }
     .tab.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
-    .search { background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 10px 18px; font-size: 0.9rem; min-width: 250px; outline: none; }
+    .search { background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 10px 18px; font-size: 0.9rem; min-width: 240px; outline: none; }
     .search:focus { border-color: var(--brand); }
     .grid { max-width: 1200px; margin: 0 auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 22px; }
     .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease, box-shadow 0.2s ease; }
@@ -69,7 +69,7 @@
   </style>
 </head>
 <body>
-  <div class="top-bar">⚡ Live AI Deal Radar: Tracking <span>Myntra, Flipkart, Ajio & Nykaa</span> every 30 minutes</div>
+  <div class="top-bar">⚡ Live AI Deal Radar: Tracking <span>Myntra, Flipkart, Amazon, Ajio & Nykaa</span> every 30 minutes</div>
   <header>
     <div class="nav">
       <a href="#" class="brand">HotDeals<span>Ai</span></a>
@@ -83,7 +83,7 @@
     <div class="hero-inner">
       <div class="pill">● Updated Automatically Every 30 Minutes</div>
       <h1>Today's Best Verified <span>Price Drops</span> in One Place.</h1>
-      <p>Our AI scans top Indian fashion, footwear, and beauty stores 24/7 so you never miss flash discounts or seasonal clearance deals.</p>
+      <p>Our AI scans top Indian fashion, electronics, beauty, and home stores 24/7 so you never miss flash discounts or clearance loot deals.</p>
       <div class="hero-ctas">
         <a href="https://whatsapp.com" target="_blank" class="cta-primary">💬 Join Free WhatsApp Channel</a>
         <a href="https://t.me" target="_blank" class="cta-secondary">✈️ Join Telegram Alerts</a>
@@ -93,12 +93,15 @@
   <div class="toolbar">
     <div class="tabs" id="categoryTabs">
       <button type="button" class="tab active" data-cat="all">🔥 All Deals</button>
-      <button type="button" class="tab" data-cat="fashion">👗 Women's Fashion</button>
-      <button type="button" class="tab" data-cat="women-footwear">👠 Women's Footwear</button>
-      <button type="button" class="tab" data-cat="beauty">💄 Beauty & Cosmetics</button>
-      <button type="button" class="tab" data-cat="men-footwear">👟 Men's Footwear</button>
+      <button type="button" class="tab" data-cat="women-fashion">👗 Women's Fashion</button>
+      <button type="button" class="tab" data-cat="men-fashion">👔 Men's Fashion</button>
+      <button type="button" class="tab" data-cat="footwear">👟 Footwear</button>
+      <button type="button" class="tab" data-cat="beauty">💄 Beauty</button>
+      <button type="button" class="tab" data-cat="electronics">🎧 Electronics & Gadgets</button>
+      <button type="button" class="tab" data-cat="home">🏠 Home & Kitchen</button>
+      <button type="button" class="tab" data-cat="kids">🧸 Kids & Accessories</button>
     </div>
-    <input type="text" class="search" id="searchBox" placeholder="Search brands, shoes, kurtas..." />
+    <input type="text" class="search" id="searchBox" placeholder="Search gadgets, shoes, kurtas..." />
   </div>
   <main class="grid" id="dealsGrid"></main>
   <section class="trust-bar">
@@ -113,7 +116,7 @@
       </div>
       <div class="trust-card">
         <h3>Free Instant Alerts</h3>
-        <p>Join our WhatsApp or Telegram channels to get flash loot alerts on your phone before sizes sell out.</p>
+        <p>Join our WhatsApp or Telegram channels to get flash loot alerts on your phone before stock runs out.</p>
       </div>
     </div>
   </section>
